@@ -8,11 +8,11 @@ import bcsgtest.model.*;
 
 /*
  * This is just a stub, which returns some hardcoded values.
- * In reality the card crud operations would go here.
+ * In reality the card db crud operations would go here.
  */
 public class CardDAO {
 
-	private ArrayList<Card> cards = new ArrayList<Card>();
+	private static ArrayList<Card> cards = new ArrayList<Card>();
 
 	private static CardDAO instance = null;
 

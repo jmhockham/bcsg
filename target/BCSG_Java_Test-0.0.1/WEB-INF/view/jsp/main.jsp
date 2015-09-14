@@ -21,7 +21,7 @@
 		<c:forEach var="card" items="${cardList}">
 			<tr>
 				<td>${card.bank}</td>
-				<td>${card.code}</td>
+				<td>${card.codeObfuscated}</td>
 				<td><fmt:formatDate value="${card.expiry}" type="both"
 						pattern="MMM-yyyy" /></td>
 			</tr>

@@ -11,8 +11,11 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,12 +30,16 @@ import bcsgtest.persistence.CardDAO;
 public class ManualController {
 
     @RequestMapping(value="/createCard", method=RequestMethod.POST)
-    public String postCreateCard(@ModelAttribute Card card, ModelMap model) {
-    	//TODO insert
-    	CardDAO cardDao = CardDAO.getInstance();
-    	cardDao.createOrUpdate(card);
-		model.addAttribute("message", "new card created");
-		return "forward:/main";
+    public String postCreateCard(@Valid @ModelAttribute Card card, BindingResult bindingResult, ModelMap model) {
+    	if (!bindingResult.hasErrors()) {
+			CardDAO cardDao = CardDAO.getInstance();
+			cardDao.createOrUpdate(card);
+			model.addAttribute("message", "new card created");
+			return "forward:/main";
+		}
+    	else{
+    		return "manual";
+    	}
 	}
 
     @RequestMapping(value="/createCardsFromCsv", method=RequestMethod.POST)

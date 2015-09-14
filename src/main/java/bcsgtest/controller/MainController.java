@@ -27,29 +27,14 @@ import bcsgtest.persistence.CardDAO;
 @Controller
 public class MainController {
 
-	@RequestMapping(value = {"/","/main"}, method = {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = { "/", "/main" }, method = { RequestMethod.GET, RequestMethod.POST })
 	public String getMain(ModelMap model) {
-
+		// sort with by expiry date
 		CardDAO cardDAO = CardDAO.getInstance();
-
 		ArrayList<Card> cardList = cardDAO.getCards();
-		
-		//obfuscate card long number
-		for (Card card : cardList) {
-			String code = card.getCode();
-			String codeStart = code.substring(0,code.indexOf("-"));
-			String codeRemainder = code.substring(code.indexOf("-"),code.length());
-			codeRemainder=codeRemainder.replaceAll("[0-9]", "*");
-			code = codeStart + codeRemainder;
-			card.setCode(code);
-		}
-		
-		//sort with by expiry date
 		Collections.sort(cardList, new ExpiryDateComparator());
-		
 		model.addAttribute("cardList", cardList);
 		return "main";
-
 	}
 
 	class ExpiryDateComparator implements Comparator<Card> {
@@ -65,7 +50,6 @@ public class MainController {
 
 	@RequestMapping(value = "/manual", method = RequestMethod.GET)
 	public String getManual(ModelMap model) {
-
 		Card card = new Card();
 		card.setBank("Test Bank");
 		card.setCode("1234-5678-9012-345");
@@ -73,7 +57,6 @@ public class MainController {
 		card.setExpiry(expiry.getTime());
 		model.addAttribute("card", card);
 		return "manual";
-
 	}
-	
+
 }

@@ -68,9 +68,14 @@
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
-			<version>1.2.1</version> <!-- makesure correct version here -->
+			<version>1.2.1</version>
 		</dependency>
-
+		<!-- Hibernate Validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
 
 		<!-- Test Artifacts -->
 		<dependency>
@@ -85,6 +90,7 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+
 
 	</dependencies>
 
