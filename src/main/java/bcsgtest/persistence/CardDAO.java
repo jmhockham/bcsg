@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 import bcsgtest.model.*;
 
 /*
- * This is just a stub, which returns some hardcoded values.
+ * This is just a stub, which returns some hard-coded values.
  * In reality the card db crud operations would go here.
  */
 public class CardDAO {
@@ -17,6 +17,7 @@ public class CardDAO {
 	private static CardDAO instance = null;
 
 	private CardDAO(){
+		//hard-coded defaults, as requested in the documentation.
 		Calendar date = new GregorianCalendar(2017, 10, 1);
 		Card c1 = new Card("HSBC Canada","5601-2345-3446-5678",date);
 		date = new GregorianCalendar(2017, 9, 1);

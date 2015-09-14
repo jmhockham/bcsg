@@ -62,6 +62,7 @@ public class Card {
 		return codeObfuscated;
 	}
 
+	//get an obfuscated version of the card long number
 	private void setCodeObfuscated(String code) {
 		String codeStr = code;
 		String codeStart = codeStr.substring(0, codeStr.indexOf("-"));

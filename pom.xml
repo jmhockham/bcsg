@@ -70,6 +70,7 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.1</version>
 		</dependency>
+		
 		<!-- Hibernate Validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -78,6 +79,8 @@
 		</dependency>
 
 		<!-- Test Artifacts -->
+		<!-- There are no tests to run (omitted for berevity), but
+		if there were these dependencies would be needed. -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
